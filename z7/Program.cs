@@ -15,69 +15,69 @@
 
 
 
-// =============== Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// i = 4, j = 2 -> такого числа в массиве нет
-// i = 1, j = 3 -> 2
-
-Console.Clear();
-Console.WriteLine("Имеем двумерный массив [5,5]:");
-int[,] array = GetArray(5, 5, 0, 10);                   //создание двумерного массива
-PrintArray(array);                                       //печать двумерного массива в консоль
-Console.Write("Введите индекс строки элемента: ");
-int i_row = int.Parse(Console.ReadLine()!);
-Console.Write("Введите индекс столбца элемента: ");
-int i_column = int.Parse(Console.ReadLine()!);
-ElementValue(i_row, i_column);                              //вызов невозвращаемого метода
-
-
-
-
-// // ============== Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// // =============== Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
 // // Например, задан массив:
 // // 1 4 7 2
 // // 5 9 2 3
 // // 8 4 2 4
-// // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+// // i = 4, j = 2 -> такого числа в массиве нет
+// // i = 1, j = 3 -> 2
 
 // Console.Clear();
-// Console.Write("Задайте количество строк в двумерном массиве: ");
-// int rows = int.Parse(Console.ReadLine()!);
-// Console.Write("Задайте количество столбцов в двумерном массиве: ");
-// int columns = int.Parse(Console.ReadLine()!);
-// Console.WriteLine($"Исходный массив [{rows},{columns}]:\n");
-// int[,] array = GetArray(rows, columns, 0, 10);
-// PrintArray(array);
-// Console.WriteLine();
-// ArithmeticAverage(array);
+// Console.WriteLine("Имеем двумерный массив [5,5]:");
+// int[,] array = GetArray(5, 5, 0, 10);                   //создание двумерного массива
+// PrintArray(array);                                       //печать двумерного массива в консоль
+// Console.Write("Введите индекс строки элемента: ");
+// int i_row = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите индекс столбца элемента: ");
+// int i_column = int.Parse(Console.ReadLine()!);
+// ElementValue(i_row, i_column);                              //вызов невозвращаемого метода
 
 
-void ElementValue(int i, int j)                      //метод вывода значения элемента
-{
-    if (i < 5 && j < 5)
-    {
-        Console.Write($"Значение этого элемента: {array[i, j]}");
-    }
-    else { Console.Write("Такого числа в массиве нет :("); }
-}
 
-// void ArithmeticAverage(int[,] array)                 //вывод среднего арифметического каждого столбца
+
+// ============== Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+Console.Clear();
+Console.Write("Задайте количество строк в двумерном массиве: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Задайте количество столбцов в двумерном массиве: ");
+int columns = int.Parse(Console.ReadLine()!);
+Console.WriteLine($"Исходный массив [{rows},{columns}]:\n");
+int[,] array = GetArray(rows, columns, 0, 10);
+PrintArray(array);
+Console.WriteLine();
+ArithmeticAverage(array);
+
+
+// void ElementValue(int i, int j)                      //метод вывода значения элемента
 // {
-// for (int j = 0; j < array.GetLength(1); j++)
-// {
-//     double Summ = 0;
-//     int i = 0;
-//     for (; i < array.GetLength(0); i++)
+//     if (i < 5 && j < 5)
 //     {
-//         Summ += array[i, j];
+//         Console.Write($"Значение этого элемента: {array[i, j]}");
 //     }
-//     double AAverage = Summ / i;
-//     Console.WriteLine($"Среднее арифметическое {j + 1}-го столбца: {AAverage:F2}");
+//     else { Console.Write("Такого числа в массиве нет :("); }
 // }
-// }
+
+void ArithmeticAverage(int[,] array)                 //вывод среднего арифметического каждого столбца
+{
+for (int j = 0; j < array.GetLength(1); j++)
+{
+    double Summ = 0;
+    int i = 0;
+    for (; i < array.GetLength(0); i++)
+    {
+        Summ += array[i, j];
+    }
+    double AAverage = Summ / i;
+    Console.WriteLine($"Среднее арифметическое {j + 1}-го столбца: {AAverage:F2}");
+}
+}
 
 int[,] GetArray(int m, int n, int minValue, int maxValue)   //метод создания и заполнения двумерного массива рандомными числами 
 {
